@@ -92,7 +92,7 @@ class TestDatasets(geomstats.tests.TestCase):
         self.assertAllClose(result, expected)
 
     def test_load_connectomes(self):
-        """Test that the connectomes belong to SPD"""
+        """Test that the connectomes belong to SPD."""
         spd = SPDMatrices(28)
         data, _, _ = data_utils.load_connectomes(as_vectors=True)
         result = data.shape
@@ -119,6 +119,7 @@ class TestDatasets(geomstats.tests.TestCase):
         self.assertAllClose(result, expected)
 
     def test_load_optical_nerves(self):
+        """Test that optical nerves belong to space of landmarks."""
         data, labels = data_utils.load_optical_nerves()
         result = data.shape
         n_monkeys = 22

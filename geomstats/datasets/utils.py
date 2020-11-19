@@ -187,21 +187,21 @@ def load_optical_nerves():
 
     Load the dataset of sets of 5 landmarks, labelled S, T, I, N, V, in 3D
     on monkeys' optical nerve heads:
-    - 1st landmark (S): superior aspect of the retina, 
+    - 1st landmark (S): superior aspect of the retina,
     - 2nd landmark (T): side of the retina closest to the temporal bone of the skull,
-    - 3rd landmark (N): nose side of the retina, 
+    - 3rd landmark (N): nose side of the retina,
     - 4th landmark (I): inferior point,
     - 5th landmarks (V): optical nerve head deepest point.
 
-    For each monkey, an experimental glaucoma was introduced in one eye, 
-    while the second eye was kept as control. This dataset can be used to 
+    For each monkey, an experimental glaucoma was introduced in one eye,
+    while the second eye was kept as control. This dataset can be used to
     investigate a significant difference between the glaucoma and the control eyes.
 
     Label 0 refers to a normal eye, and Label 1 to an eye with glaucoma.
 
     References
     ----------
-        .. [PE2015] V. Patrangenaru and L. Ellingson. Nonparametric Statistics on 
+        .. [PE2015] V. Patrangenaru and L. Ellingson. Nonparametric Statistics on
           Manifolds and Their Applications to Object Data, 2015.
           https://doi.org/10.1201/b18969
 
