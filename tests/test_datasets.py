@@ -4,7 +4,9 @@ import geomstats.backend as gs
 import geomstats.datasets.utils as data_utils
 import geomstats.tests
 from geomstats.geometry.beta_distributions import BetaDistributions
+from geomstats.geometry.euclidean import Euclidean
 from geomstats.geometry.hypersphere import Hypersphere
+from geomstats.geometry.landmarks import Landmarks
 from geomstats.geometry.spd_matrices import SPDMatrices
 from geomstats.geometry.special_euclidean import SpecialEuclidean
 from geomstats.geometry.special_orthogonal import SpecialOrthogonal
@@ -20,15 +22,14 @@ class TestDatasets(geomstats.tests.TestCase):
         self.assertAllClose(gs.shape(data), (50, 3))
 
         tokyo = data[0]
-        self.assertAllClose(
-            tokyo, gs.array([0.61993792, -0.52479018, 0.58332859]))
+        self.assertAllClose(tokyo, gs.array([0.61993792, -0.52479018, 0.58332859]))
 
         result = sphere.belongs(data)
         self.assertTrue(gs.all(result))
 
     def test_load_poses_only_rotations(self):
         """Test that the poses belong to SO(3)."""
-        so3 = SpecialOrthogonal(n=3, point_type='vector')
+        so3 = SpecialOrthogonal(n=3, point_type="vector")
         data, _ = data_utils.load_poses()
         result = so3.belongs(data)
 
@@ -36,7 +37,7 @@ class TestDatasets(geomstats.tests.TestCase):
 
     def test_load_poses(self):
         """Test that the poses belong to SE(3)."""
-        se3 = SpecialEuclidean(n=3, point_type='vector')
+        se3 = SpecialEuclidean(n=3, point_type="vector")
         data, _ = data_utils.load_poses(only_rotations=False)
         result = se3.belongs(data)
 
@@ -65,12 +66,12 @@ class TestDatasets(geomstats.tests.TestCase):
         walk_length = 3
         n_walks_per_node = 1
 
-        paths = graph.random_walk(walk_length=walk_length,
-                                  n_walks_per_node=n_walks_per_node)
+        paths = graph.random_walk(
+            walk_length=walk_length, n_walks_per_node=n_walks_per_node
+        )
 
         result = [len(paths), len(paths[0])]
-        expected = [len(graph.edges) * n_walks_per_node,
-                    walk_length + 1]
+        expected = [len(graph.edges) * n_walks_per_node, walk_length + 1]
 
         self.assertAllClose(result, expected)
 
@@ -81,12 +82,12 @@ class TestDatasets(geomstats.tests.TestCase):
         walk_length = 6
         n_walks_per_node = 2
 
-        paths = graph.random_walk(walk_length=walk_length,
-                                  n_walks_per_node=n_walks_per_node)
+        paths = graph.random_walk(
+            walk_length=walk_length, n_walks_per_node=n_walks_per_node
+        )
 
         result = [len(paths), len(paths[0])]
-        expected = [len(graph.edges) * n_walks_per_node,
-                    walk_length + 1]
+        expected = [len(graph.edges) * n_walks_per_node, walk_length + 1]
 
         self.assertAllClose(result, expected)
 
@@ -116,3 +117,22 @@ class TestDatasets(geomstats.tests.TestCase):
         result = len(distrib_type)
         expected = beta_param.shape[0]
         self.assertAllClose(result, expected)
+
+    def test_load_optical_nerves(self):
+        data, labels = data_utils.load_optical_nerves()
+        result = data.shape
+        n_monkeys = 22
+        n_landmarks = 5
+        dim = 3
+        expected = (n_monkeys, n_landmarks, dim)
+        self.assertAllClose(result, expected)
+
+        landmarks_space = Landmarks(
+            ambient_manifold=Euclidean(dim=3), n_landmarks=n_landmarks
+        )
+
+        result = landmarks_space.belongs(data)
+        self.assertTrue(gs.all(result))
+
+        result = gs.logical_and(labels >= 0, labels <= 1)
+        self.assertTrue(gs.all(result))
