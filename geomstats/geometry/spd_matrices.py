@@ -601,6 +601,18 @@ class SPDMetricAffine(RiemannianMetric):
         congruence_mat = Matrices.mul(end_point, inverse_base_point)
         congruence_mat = gs.linalg.sqrtm(congruence_mat)
         return Matrices.congruent(tangent_vec_a, congruence_mat)
+    
+    def squared_dist(self, point_a, point_b):
+        """" Computes squared_dist 
+
+        Parameters
+        ----------
+        point_a : array_like, shape=[..., n, n]
+        point_b : array_like, shape=[..., n, n]
+        """
+        log_prod = self.space.logm(point_a) - self.space.logm(point_b)
+        dist = gs.einsum('...ij,...ji->...', log_prod, log_prod)
+        return dist
 
 
 class SPDMetricBuresWasserstein(RiemannianMetric):
