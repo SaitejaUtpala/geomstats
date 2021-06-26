@@ -6,66 +6,30 @@ from itertools import product
 
 import numpy as _np
 import tensorflow as tf
-from tensorflow import (  # NOQA
-    abs,
-    acos as arccos,
-    acosh as arccosh,
-    argmax,
-    argmin,
-    asin as arcsin,
-    atan2 as arctan2,
-    broadcast_to,
-    clip_by_value as clip,
-    concat,
-    cos,
-    cosh,
-    divide,
-    equal,
-    exp,
-    expand_dims,
-    float32,
-    float64,
-    floor,
-    gather,
-    greater,
-    int32,
-    int64,
-    less,
-    less_equal,
-    linspace,
-    logical_and,
-    logical_or,
-    maximum,
-    meshgrid,
-    ones,
-    ones_like,
-    range as arange,
-    reduce_max as amax,
-    reduce_mean as mean,
-    reduce_min as amin,
-    reduce_prod as prod,
-    reshape,
-    searchsorted,
-    shape,
-    sign,
-    sin,
-    sinh,
-    sqrt,
-    squeeze,
-    stack,
-    tan,
-    tanh,
-    uint8,
-    zeros,
-    zeros_like
-)
+from tensorflow import abs
+from tensorflow import acos as arccos  # NOQA
+from tensorflow import acosh as arccosh
+from tensorflow import argmax, argmin
+from tensorflow import asin as arcsin
+from tensorflow import atan2 as arctan2
+from tensorflow import broadcast_to
+from tensorflow import clip_by_value as clip
+from tensorflow import (concat, cos, cosh, divide, equal, exp, expand_dims,
+                        float32, float64, floor, gather, greater, int32, int64,
+                        less, less_equal, linspace, logical_and, logical_or,
+                        maximum, meshgrid, ones, ones_like)
+from tensorflow import range as arange
+from tensorflow import reduce_max as amax
+from tensorflow import reduce_mean as mean
+from tensorflow import reduce_min as amin
+from tensorflow import reduce_prod as prod
+from tensorflow import (reshape, searchsorted, shape, sign, sin, sinh, sqrt,
+                        squeeze, stack, tan, tanh, uint8, zeros, zeros_like)
 
-
-from . import autograd # NOQA
+from ..constants import tf_atol, tf_rtol
+from . import autograd  # NOQA
 from . import linalg  # NOQA
 from . import random  # NOQA
-from ..constants import tf_atol, tf_rtol
-
 
 DTYPES = {
     int32: 0,

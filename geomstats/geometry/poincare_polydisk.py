@@ -14,12 +14,11 @@ References
 import geomstats.backend as gs
 from geomstats.geometry._hyperbolic import _Hyperbolic
 from geomstats.geometry.base import OpenSet
-from geomstats.geometry.hyperboloid import Hyperboloid
-from geomstats.geometry.hyperboloid import HyperboloidMetric
+from geomstats.geometry.hyperboloid import Hyperboloid, HyperboloidMetric
 from geomstats.geometry.matrices import Matrices
 from geomstats.geometry.product_manifold import ProductManifold
-from geomstats.geometry.product_riemannian_metric \
-    import ProductRiemannianMetric  # NOQA
+from geomstats.geometry.product_riemannian_metric import \
+    ProductRiemannianMetric  # NOQA
 
 
 class PoincarePolydisk(ProductManifold, OpenSet):

@@ -6,7 +6,6 @@ from sklearn.base import BaseEstimator, ClusterMixin
 
 import geomstats.backend as gs
 
-
 # TODO (nkoep): Move this into the OnlineKMeans class.
 
 def online_kmeans(X, metric, n_clusters, n_repetitions=20,

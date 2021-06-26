@@ -1,13 +1,12 @@
 """Unit tests for special euclidean group in matrix representation."""
 
-import tests.helper as helper
-
 import geomstats.backend as gs
 import geomstats.tests
+import tests.helper as helper
 from geomstats.geometry.matrices import Matrices
-from geomstats.geometry.special_euclidean import SpecialEuclidean,\
-    SpecialEuclideanMatrixCannonicalLeftMetric,\
-    SpecialEuclideanMatrixLieAlgebra
+from geomstats.geometry.special_euclidean import (
+    SpecialEuclidean, SpecialEuclideanMatrixCannonicalLeftMetric,
+    SpecialEuclideanMatrixLieAlgebra)
 
 
 class TestSpecialEuclidean(geomstats.tests.TestCase):
