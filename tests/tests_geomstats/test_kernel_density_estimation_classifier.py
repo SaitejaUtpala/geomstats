@@ -6,8 +6,9 @@ from geomstats.geometry.euclidean import Euclidean
 from geomstats.geometry.hyperboloid import Hyperboloid
 from geomstats.geometry.hypersphere import Hypersphere
 from geomstats.geometry.poincare_ball import PoincareBall
-from geomstats.learning.kernel_density_estimation_classifier import \
-    KernelDensityEstimationClassifier
+from geomstats.learning.kernel_density_estimation_classifier import (
+    KernelDensityEstimationClassifier,
+)
 from geomstats.learning.radial_kernel_functions import triangular_radial_kernel
 
 

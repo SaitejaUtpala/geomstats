@@ -3,8 +3,7 @@
 import geomstats.backend as gs
 import geomstats.tests
 import tests.helper as helper
-from geomstats.geometry.grassmannian import (Grassmannian,
-                                             GrassmannianCanonicalMetric)
+from geomstats.geometry.grassmannian import Grassmannian, GrassmannianCanonicalMetric
 from geomstats.geometry.matrices import Matrices
 
 p_xy = gs.array([

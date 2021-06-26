@@ -4,8 +4,10 @@ from scipy.stats import norm
 
 import geomstats.backend as gs
 import geomstats.errors
-from geomstats.geometry.poincare_half_space import (PoincareHalfSpace,
-                                                    PoincareHalfSpaceMetric)
+from geomstats.geometry.poincare_half_space import (
+    PoincareHalfSpace,
+    PoincareHalfSpaceMetric,
+)
 
 
 class NormalDistributions(PoincareHalfSpace):

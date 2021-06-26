@@ -8,6 +8,7 @@ The test file for this manifold can be found at:
 tests/test__my_manifold.py.
 """
 import geomstats.backend as gs
+
 # Import the class(es) that MyManifold inherits from
 from geomstats.geometry.manifold import Manifold
 

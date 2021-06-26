@@ -6,8 +6,7 @@ import geomstats.backend as gs
 import geomstats.errors
 import geomstats.vectorization
 from geomstats.geometry.manifold import Manifold
-from geomstats.geometry.product_riemannian_metric import \
-    ProductRiemannianMetric
+from geomstats.geometry.product_riemannian_metric import ProductRiemannianMetric
 
 
 class ProductManifold(Manifold):
